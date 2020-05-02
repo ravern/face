@@ -15,23 +15,23 @@ const ButtonStyles = css`
 `;
 
 export const PrimaryButton = styled(ReakitButton)`
+  ${ButtonStyles}
+
   background-color: ${(props) => props.theme.colors.primary};
   color: ${(props) => props.theme.colors.white};
-
-  ${ButtonStyles}
 `;
 
 export const SecondaryButton = styled(ReakitButton)`
+  ${ButtonStyles}
+
   background-color: ${(props) => props.theme.colors.lightGray};
   color: ${(props) => props.theme.colors.black};
-
-  ${ButtonStyles}
 `;
 
 export const TertiaryButton = styled(ReakitButton)`
-  padding: none;
+  ${ButtonStyles}
+
+  padding: 0;
   background: none;
   color: ${(props) => props.theme.colors.black};
-
-  ${ButtonStyles}
 `;

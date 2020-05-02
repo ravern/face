@@ -11,14 +11,8 @@ export const CardContainer = styled.div`
   ${ContainerStyles}
 
   background-color: ${(props) => props.theme.colors.lightGray};
-  padding: 1.2rem;
+  padding: 1.6rem;
   border-radius: 0.6rem;
-`;
-
-export const ContentContainer = styled.div`
-  & > * + * {
-    margin-top: 1.8rem;
-  }
 `;
 
 export const ColumnContainer = styled.div`

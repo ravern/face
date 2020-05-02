@@ -27,12 +27,12 @@ export default function SearchBarForm() {
       <ColumnContainer>
         <Title>find something interesting!</Title>
         <Spacer />
-        <CardContainer>
+        <InputContainer>
           <RowContainer>
             <TertiaryFormInput {...form} name="query" placeholder="query" />
             <PrimaryFormSubmitButton {...form}>search</PrimaryFormSubmitButton>
           </RowContainer>
-        </CardContainer>
+        </InputContainer>
       </ColumnContainer>
     </Form>
   );
@@ -44,3 +44,7 @@ const Title = styled(Heading1)`
 `;
 
 const Spacer = styled.div``;
+
+const InputContainer = styled(CardContainer)`
+  padding: 0.8rem 1.2rem;
+`;
