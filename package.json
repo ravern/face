@@ -1,0 +1,22 @@
+{
+  "name": "face",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "start-storybook"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "emotion-theming": "^10.0.27",
+    "lodash": "^4.17.15",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "reakit": "^1.0.0-rc.2",
+    "recompose": "^0.30.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@storybook/react": "^5.3.18",
+    "babel-loader": "^8.1.0"
+  }
+}
