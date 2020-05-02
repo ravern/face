@@ -1,9 +1,10 @@
-import "../helpers/unfocus";
-
 import styled from "@emotion/styled";
 
+import unfocus from "../helpers/unfocus";
 import LoginForm from "./components/Form/Login";
 import SearchBarForm from "./components/Form/SearchBar";
+
+unfocus();
 
 export default { title: "Form" };
 

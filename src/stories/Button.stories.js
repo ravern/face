@@ -1,7 +1,9 @@
-import "../helpers/unfocus";
-
 import styled from "@emotion/styled";
 import React from "react";
+
+import unfocus from "../helpers/unfocus";
+
+unfocus();
 
 import {
   PrimaryButton,

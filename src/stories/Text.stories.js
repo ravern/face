@@ -10,6 +10,9 @@ import {
   Heading6,
   Paragraph,
 } from "../components/Text";
+import unfocus from "../helpers/unfocus";
+
+unfocus();
 
 export default {
   title: "Text",
