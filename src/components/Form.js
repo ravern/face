@@ -1,5 +1,4 @@
-import "../helpers/unfocus";
-
+import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import isNil from "lodash/isNil";
 import {
@@ -10,26 +9,40 @@ import {
 } from "reakit/Form";
 import withProps from "recompose/withProps";
 
+import { PrimaryButton } from "./Button";
+import { ColumnContainer, RowContainer } from "./Container";
+
 export { unstable_useFormState as useFormState } from "reakit/Form";
 
-export const Form = styled(ReakitForm)`
-  display: flex;
-  flex-direction: column;
+export const ColumnForm = withProps({ as: ColumnContainer })(styled(ReakitForm)`
   align-items: flex-start;
+`);
 
-  & > * + * {
-    margin-top: 0.8rem;
-  }
-`;
+export const RowForm = withProps({ as: RowContainer })(styled(ReakitForm)`
+  align-items: center;
+`);
 
-export const FormInput = withProps({ autoComplete: "off" })(styled(
-  ReakitFormInput
-)`
-  background-color: #f2f2f2;
+const FormInputStyles = (props) => css`
   padding: 1.2rem;
   border: none;
   border-radius: 0.6rem;
-`);
+
+  &::placeholder {
+    color: ${props.theme.colors.darkGray};
+  }
+`;
+
+export const SecondaryFormInput = styled(ReakitFormInput)`
+  background-color: ${(props) => props.theme.colors.lightGray};
+
+  ${FormInputStyles}
+`;
+
+export const TertiaryFormInput = styled(ReakitFormInput)`
+  background: none;
+
+  ${FormInputStyles}
+`;
 
 export const FormMessage = styled(ReakitFormMessage)`
   color: ${(props) =>
@@ -38,16 +51,6 @@ export const FormMessage = styled(ReakitFormMessage)`
     !isNil(props.messages[props.name]) && props.theme.colors.success};
 `;
 
-export const FormSubmitButton = styled(ReakitFormSubmitButton)`
-  font-weight: 600;
-  padding: 0.4rem 1.2rem;
-  border: none;
-  border-radius: 0.6rem;
-  background-color: ${(props) => props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.white};
-
-  &:active {
-    transform: scale(0.96);
-  }
-`;
-
+export const PrimaryFormSubmitButton = withProps({
+  as: ReakitFormSubmitButton,
+})(PrimaryButton);

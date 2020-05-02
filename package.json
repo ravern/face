@@ -2,7 +2,8 @@
   "name": "face",
   "version": "0.1.0",
   "scripts": {
-    "dev": "start-storybook"
+    "dev": "start-storybook",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
@@ -17,6 +18,13 @@
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@storybook/react": "^5.3.18",
-    "babel-loader": "^8.1.0"
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "prettier": "^2.0.5"
   }
 }

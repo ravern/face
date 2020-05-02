@@ -1,23 +1,20 @@
-import React from 'react';
+import "../helpers/unfocus";
+
 import styled from "@emotion/styled";
+import React from "react";
+
+import { ColumnContainer } from "../components/Container";
 import {
-  Form,
-  FormInput,
-  FormSubmitButton,
+  ColumnForm,
+  PrimaryFormSubmitButton,
+  RowForm,
+  SecondaryFormInput,
+  TertiaryFormInput,
   useFormState,
 } from "../components/Form";
-import { ThemeProvider } from "emotion-theming";
-import { LIGHT_THEME } from '../constants';
+import withContainer from "./helpers/withContainer";
 
-export default { title: 'Form' };
-
-const withContainer = (Component) => (props) => (
-  <ThemeProvider theme={LIGHT_THEME}>
-    <Container>
-      <Component {...props} />
-    </Container>
-  </ThemeProvider>
-);
+export default { title: "Form" };
 
 export const Login = withContainer(() => {
   const form = useFormState({
@@ -25,38 +22,57 @@ export const Login = withContainer(() => {
       email: "",
       password: "",
     },
-    onSubmit: console.log,
+    onSubmit: () => {},
   });
 
-  return <ThemeProvider theme={LIGHT_THEME}>
-    <Form {...form}>
-    <Title>welcome back!</Title>
-    <Spacer />
-    <FormInput {...form} name="email" placeholder="email" />
-    <FormInput
-      {...form}
-      name="password"
-      type="password"
-      placeholder="password"
-    />
-    <Spacer />
-    <FormSubmitButton {...form}>login</FormSubmitButton>
-  </Form>
-    </ThemeProvider>
+  return (
+    <ColumnForm {...form}>
+      <Title>welcome back!</Title>
+      <Spacer />
+      <SecondaryFormInput {...form} name="email" placeholder="email" />
+      <SecondaryFormInput
+        {...form}
+        name="password"
+        type="password"
+        placeholder="password"
+      />
+      <Spacer />
+      <PrimaryFormSubmitButton {...form}>login</PrimaryFormSubmitButton>
+    </ColumnForm>
+  );
 });
 
-const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+export const SearchBar = withContainer(() => {
+  const form = useFormState({
+    values: {
+      email: "",
+      password: "",
+    },
+    onSubmit: () => {},
+  });
+
+  return (
+    <ColumnContainer>
+      <Title>find something interesting!</Title>
+      <Spacer />
+      <SearchBarForm {...form}>
+        <TertiaryFormInput {...form} name="query" placeholder="query" />
+        <PrimaryFormSubmitButton {...form}>search</PrimaryFormSubmitButton>
+      </SearchBarForm>
+    </ColumnContainer>
+  );
+});
+
+const SearchBarForm = styled(RowForm)`
+  background-color: ${(props) => props.theme.colors.lightGray};
+  padding-right: 1.2rem;
+  border-radius: 0.6rem;
 `;
 
 const Title = styled.h1`
   font-weight: 600;
   font-size: 1.8rem;
+  text-align: center;
 `;
 
 const Spacer = styled.div`
