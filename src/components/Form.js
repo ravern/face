@@ -9,18 +9,11 @@ import {
 } from "reakit/Form";
 import withProps from "recompose/withProps";
 
-import { PrimaryButton } from "./Button";
-import { ColumnContainer, RowContainer } from "./Container";
+import { PrimaryButton, SecondaryButton, TertiaryButton } from "./Button";
 
 export { unstable_useFormState as useFormState } from "reakit/Form";
 
-export const ColumnForm = withProps({ as: ColumnContainer })(styled(ReakitForm)`
-  align-items: flex-start;
-`);
-
-export const RowForm = withProps({ as: RowContainer })(styled(ReakitForm)`
-  align-items: center;
-`);
+export const Form = styled(ReakitForm)``;
 
 const FormInputStyles = (props) => css`
   padding: 1.2rem;
@@ -33,15 +26,16 @@ const FormInputStyles = (props) => css`
 `;
 
 export const SecondaryFormInput = styled(ReakitFormInput)`
-  background-color: ${(props) => props.theme.colors.lightGray};
-
   ${FormInputStyles}
+
+  background-color: ${(props) => props.theme.colors.lightGray};
 `;
 
 export const TertiaryFormInput = styled(ReakitFormInput)`
-  background: none;
-
   ${FormInputStyles}
+
+  padding: 0;
+  background: none;
 `;
 
 export const FormMessage = styled(ReakitFormMessage)`
@@ -54,3 +48,11 @@ export const FormMessage = styled(ReakitFormMessage)`
 export const PrimaryFormSubmitButton = withProps({
   as: ReakitFormSubmitButton,
 })(PrimaryButton);
+
+export const SecondaryFormSubmitButton = withProps({
+  as: ReakitFormSubmitButton,
+})(SecondaryButton);
+
+export const TertiaryFormSubmitButton = withProps({
+  as: ReakitFormSubmitButton,
+})(TertiaryButton);

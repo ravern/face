@@ -29,6 +29,7 @@ export const SecondaryButton = styled(ReakitButton)`
 `;
 
 export const TertiaryButton = styled(ReakitButton)`
+  padding: none;
   background: none;
   color: ${(props) => props.theme.colors.black};
 

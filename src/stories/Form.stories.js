@@ -3,15 +3,19 @@ import "../helpers/unfocus";
 import styled from "@emotion/styled";
 import React from "react";
 
-import { ColumnContainer } from "../components/Container";
 import {
-  ColumnForm,
+  CardContainer,
+  ColumnContainer,
+  RowContainer,
+} from "../components/Container";
+import {
+  Form,
   PrimaryFormSubmitButton,
-  RowForm,
   SecondaryFormInput,
   TertiaryFormInput,
   useFormState,
 } from "../components/Form";
+import { Heading1 } from "../components/Text";
 import withContainer from "./helpers/withContainer";
 
 export default { title: "Form" };
@@ -26,19 +30,21 @@ export const Login = withContainer(() => {
   });
 
   return (
-    <ColumnForm {...form}>
-      <Title>welcome back!</Title>
-      <Spacer />
-      <SecondaryFormInput {...form} name="email" placeholder="email" />
-      <SecondaryFormInput
-        {...form}
-        name="password"
-        type="password"
-        placeholder="password"
-      />
-      <Spacer />
-      <PrimaryFormSubmitButton {...form}>login</PrimaryFormSubmitButton>
-    </ColumnForm>
+    <Form {...form}>
+      <LoginContainer>
+        <Title>welcome back!</Title>
+        <Spacer />
+        <SecondaryFormInput {...form} name="email" placeholder="email" />
+        <SecondaryFormInput
+          {...form}
+          name="password"
+          type="password"
+          placeholder="password"
+        />
+        <Spacer />
+        <PrimaryFormSubmitButton {...form}>login</PrimaryFormSubmitButton>
+      </LoginContainer>
+    </Form>
   );
 });
 
@@ -55,24 +61,25 @@ export const SearchBar = withContainer(() => {
     <ColumnContainer>
       <Title>find something interesting!</Title>
       <Spacer />
-      <SearchBarForm {...form}>
-        <TertiaryFormInput {...form} name="query" placeholder="query" />
-        <PrimaryFormSubmitButton {...form}>search</PrimaryFormSubmitButton>
-      </SearchBarForm>
+      <CardContainer>
+        <Form {...form}>
+          <RowContainer>
+            <TertiaryFormInput {...form} name="query" placeholder="query" />
+            <PrimaryFormSubmitButton {...form}>search</PrimaryFormSubmitButton>
+          </RowContainer>
+        </Form>
+      </CardContainer>
     </ColumnContainer>
   );
 });
 
-const SearchBarForm = styled(RowForm)`
-  background-color: ${(props) => props.theme.colors.lightGray};
-  padding-right: 1.2rem;
-  border-radius: 0.6rem;
-`;
-
-const Title = styled.h1`
-  font-weight: 600;
+const Title = styled(Heading1)`
   font-size: 1.8rem;
   text-align: center;
+`;
+
+const LoginContainer = styled(ColumnContainer)`
+  align-items: flex-start;
 `;
 
 const Spacer = styled.div`

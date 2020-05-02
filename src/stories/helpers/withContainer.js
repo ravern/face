@@ -7,13 +7,14 @@ import { LIGHT_THEME } from "../../constants";
 const withContainer = (Component) => (props) => (
   <ThemeProvider theme={LIGHT_THEME}>
     <Container>
-      <Component {...props} />
+      <div>
+        <Component {...props} />
+      </div>
     </Container>
   </ThemeProvider>
 );
 
 const Container = styled.div`
-  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
