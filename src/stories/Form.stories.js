@@ -1,10 +1,32 @@
 import "../helpers/unfocus";
 
+import styled from "@emotion/styled";
+
 import LoginForm from "./components/Form/Login";
 import SearchBarForm from "./components/Form/SearchBar";
 
 export default { title: "Form" };
 
-export const Login = LoginForm;
+export function Login() {
+  return (
+    <Container>
+      <LoginForm />
+    </Container>
+  );
+}
 
-export const SearchBar = SearchBarForm;
+export function SearchBar() {
+  return (
+    <Container>
+      <SearchBarForm />
+    </Container>
+  );
+}
+
+const Container = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;

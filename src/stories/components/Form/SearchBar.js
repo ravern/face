@@ -1,7 +1,11 @@
 import styled from "@emotion/styled";
 import React from "react";
 
-import { CardContainer, RowContainer } from "../../../components/Container";
+import {
+  CardContainer,
+  ColumnContainer,
+  RowContainer,
+} from "../../../components/Container";
 import {
   Form,
   PrimaryFormSubmitButton,
@@ -20,14 +24,16 @@ export default function SearchBarForm() {
 
   return (
     <Form {...form}>
-      <Title>find something interesting!</Title>
-      <Spacer />
-      <CardContainer>
-        <RowContainer>
-          <TertiaryFormInput {...form} name="query" placeholder="query" />
-          <PrimaryFormSubmitButton {...form}>search</PrimaryFormSubmitButton>
-        </RowContainer>
-      </CardContainer>
+      <ColumnContainer>
+        <Title>find something interesting!</Title>
+        <Spacer />
+        <CardContainer>
+          <RowContainer>
+            <TertiaryFormInput {...form} name="query" placeholder="query" />
+            <PrimaryFormSubmitButton {...form}>search</PrimaryFormSubmitButton>
+          </RowContainer>
+        </CardContainer>
+      </ColumnContainer>
     </Form>
   );
 }

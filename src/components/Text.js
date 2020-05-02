@@ -31,5 +31,5 @@ export const Heading6 = styled.h6`
 `;
 
 export const Paragraph = styled.p`
-  font-weight: 400;
+  font-weight: normal;
 `;
