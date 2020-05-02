@@ -1,5 +1,6 @@
 import "../helpers/unfocus";
 
+import styled from "@emotion/styled";
 import React from "react";
 
 import {
@@ -7,18 +8,37 @@ import {
   SecondaryButton,
   TertiaryButton,
 } from "../components/Button";
-import withContainer from "./helpers/withContainer";
 
 export default { title: "Button" };
 
-export const Primary = withContainer(() => (
-  <PrimaryButton>click me!</PrimaryButton>
-));
+export function Primary() {
+  return (
+    <Container>
+      <PrimaryButton>click me!</PrimaryButton>
+    </Container>
+  );
+}
 
-export const Secondary = withContainer(() => (
-  <SecondaryButton>click me!</SecondaryButton>
-));
+export function Secondary() {
+  return (
+    <Container>
+      <SecondaryButton>click me!</SecondaryButton>
+    </Container>
+  );
+}
 
-export const Tertiary = withContainer(() => (
-  <TertiaryButton>click me!</TertiaryButton>
-));
+export function Tertiary() {
+  return (
+    <Container>
+      <TertiaryButton>click me!</TertiaryButton>
+    </Container>
+  );
+}
+
+const Container = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
